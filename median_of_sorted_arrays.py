@@ -20,9 +20,6 @@ class Solution(object):
         while True:
             i = (mini + maxi) / 2
             j = ij_sum - i
-            print 'i', i
-            print 'j', j
-            print '--------------------'
             if i < m and a[i] < b[j - 1]:
                 mini = i + 1
             elif i > 0 and a[i - 1] > b[j]:

@@ -8,30 +8,25 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        length = len(s)
         filter_dict = {}
         start = 0
         max_length = 0
         count = 0
-        at_end = False
-        while not at_end:
-            for idx, char in enumerate(s[start:]):
-                idx = start + idx
-                if idx == length - 1:
-                    at_end = True
-                if char not in filter_dict:
-                    filter_dict[char] = idx
-                    count += 1
-                else:
-                    pos = filter_dict[char]
-                    start = pos + 1
-                    filter_dict = {}
-                    break
-            if count > max_length:
-                max_length = count
-            count = 0
+        for idx, char in enumerate(s):
+            if char not in filter_dict or char in filter_dict and filter_dict[char] < start:
+                filter_dict[char] = idx
+                count += 1
+            else:
+                pos = filter_dict[char]
+                start = pos + 1
+                filter_dict[char] = idx
+                if count > max_length:
+                    max_length = count
+                count = idx - pos
+        if count > max_length:
+            max_length = count
         return max_length
 
 
 s = Solution()
-print s.lengthOfLongestSubstring('abcabcbb')
+print s.lengthOfLongestSubstring('abcabcdeggbb1234567890')
