@@ -29,4 +29,4 @@ class Solution(object):
 
 
 s = Solution()
-print s.lengthOfLongestSubstring('abcabcdeggbb1234567890')
+print(s.lengthOfLongestSubstring('abcabcdeggbb1234567890'))

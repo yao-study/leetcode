@@ -15,7 +15,6 @@ class Solution(object):
 
         def getPalindrome(index):
             for left, right in [(index, index), (index, index + 1)]:
-                print left, right
                 while True:
                     if left < 0 or right >= s_len:
                         break
